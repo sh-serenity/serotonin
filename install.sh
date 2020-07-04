@@ -1,7 +1,6 @@
-export dbhost=dbhost
-export dbuser=dbuser
-export dbpass=passtololo
-export myroot=passtrololo
+dbhost=dbhost
+dbuser=dbuser
+dbpass=passtololo
 
 cd /opt
 
@@ -17,7 +16,7 @@ cd serotonin
 
 docker-compose up --build -d
 
-docker exec -i $dbhost mysql -uroot -p$myroot -e "create user $dbuser identified by '$dbpass'"
-docker exec -i $dbhost mysql -uroot -p$myroot -e "create database $db"
-docker exec -i $dbhost mysql -uroot -p$myroot -e "grant all on $db.* to $dbuser"
+docker exec -i $dbhost mysql -uroot -pblablapass -e "create user $dbuser identified by '$dbpass'"
+docker exec -i $dbhost mysql -uroot -pblablapass -e "create database $db"
+docker exec -i $dbhost mysql -uroot -pblablapass -e "grant all on $db.* to $dbuser"
 docker exec -i $dbhost mysql -u$dbuser -p$dbpass $db  < db.sql
