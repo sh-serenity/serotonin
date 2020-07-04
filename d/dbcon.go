@@ -7,12 +7,12 @@ import (
 var db *sql.DB
 func dbConnect() (db *sql.DB) {
 	dbDriver := "mysql"
-	dbUser := "$dbuser"
-	dbPass := "$dbpass"
-	dbHost := "$dbhost"
+//	dbUser := "$DBUSER"
+//	dbPass := "$DBPASS"
+//	dbHost := "$DBHOST"
 	dbPort := "3306"
-	dbName := "$dbname"
-	db, err := sql.Open(dbDriver, dbUser +":"+ dbPass +"@tcp("+ dbHost +":"+ dbPort +")/"+ dbName +"?charset=utf8")
+//	dbName := "$DBNAME"
+	db, err := sql.Open(dbDriver, $DBUSER +":"+ $DBPASS +"@tcp("+ $DBHOST +":"+ dbPort +")/"+ $DBNAME +"?charset=utf8")
 	if err != nil {
 		return
 	}
