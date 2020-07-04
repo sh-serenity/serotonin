@@ -11,7 +11,7 @@ services:
     - /opt/serenity/mysql:/var/lib/mysql
 
   calm:
-    container_name: calm      
+    container_name: sera
     build: ./
     depends_on:
       - db
@@ -19,7 +19,7 @@ services:
       - "9001:9001"
     restart: always
     volumes:
-    - /opt/ser-b:/files
+    - /opt/serotonin:/files
   web:
     container_name: nginx
     image: nginx:stable
@@ -30,5 +30,5 @@ services:
     ports:
       - "80:80"
     volumes:
-    - /opt/ser-b/conf.d:/etc/nginx/conf.d
-    - /opt/ser-b:/files
+    - /opt/serotonin/conf.d:/etc/nginx/conf.d
+    - /opt/serotonin:/files

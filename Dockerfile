@@ -3,7 +3,7 @@ ENV GOPATH /go
 RUN apt-get update
 
 WORKDIR /go
-ADD ./d /go/
+ADD d /go/
 
 WORKDIR /go/d
 RUN go get github.com/go-sql-driver/mysql github.com/gorilla/sessions github.com/shurcooL/github_flavored_markdown
