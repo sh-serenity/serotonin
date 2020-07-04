@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: $myroot
     volumes:
-    - /opt/serenity/mysql:/var/lib/mysql
+    - /opt/serotonin/mysql:/var/lib/mysql
 
   calm:
     container_name: sera
@@ -19,7 +19,7 @@ services:
       - "9001:9001"
     restart: always
     volumes:
-    - /opt/serotonin:/files
+    - /opt/serotonin/d:/files
   web:
     container_name: nginx
     image: nginx:stable

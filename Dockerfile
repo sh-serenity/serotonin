@@ -2,7 +2,6 @@ FROM golang:buster
 ENV GOPATH /go
 RUN apt-get update
 
-WORKDIR /go
 ADD d /go/
 
 WORKDIR /go/d
