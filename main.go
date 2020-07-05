@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/sessions"
 	"github.com/shurcooL/github_flavored_markdown"
@@ -132,8 +133,14 @@ func chksoap(w http.ResponseWriter, r *http.Request) {
 }
 
 func htmlhandle(w http.ResponseWriter, r *http.Request) {
+//	db := dbConnect()
+//	chknon(w,r)
+//	htop(w, r)
+	t, _ := template.ParseFiles("tmpl/head.html")
+	t.Execute(w, nil)
 	db := dbConnect()
-	rowsp, err := db.Query("select posts.id, subj, post, fname, sname, posttime from posts left join users on posts.owner = users.id  order by posttime desc")
+
+	rowsp, err := db.Query("select posts.id, post, fname, sname, posttime from posts left join users on posts.owner = users.id where users.id=18 order by posttime desc")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -178,8 +185,10 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	t, _ := template.ParseFiles("tmpl/footer.html")
+	t, _ = template.ParseFiles("tmpl/footer.html")
 	t.ExecuteTemplate(w, "footer", nil)
+
+
 
 }
 
