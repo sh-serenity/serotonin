@@ -7,16 +7,6 @@ import (
 )
 var db *sql.DB
 func dbConnect() (db *sql.DB) {
-        dbDriver := "mysql"
-     dbUser := "dbuser"
-      dbPass := "passtololo"
-      dbHost := "dbhost"
-        dbPort := "3306"
-      dbName := "db"
-        db, err := sql.Open(dbDriver, dbUser +":"+ dbPass +"@tcp("+ dbHost +":"+ dbPort +")\ + dbName +"?charset=utf8")
-        if err != nil {
-                return
-        }
-        return db
-
+    db, _ = sql.Open("mysql", "dbuser:passtololo@tcp(dbhost:3306)/db")
+return db
 }
