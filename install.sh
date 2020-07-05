@@ -34,19 +34,10 @@ import (
 )
 var db *sql.DB
 func dbConnect() (db *sql.DB) {
-        dbDriver := \"mysql\"
-     dbUser := \"$DBUSER\"
-      dbPass := \"$DBPASS\"
-      dbHost := \"$DBHOST\"
-        dbPort := \"3306\"
-      dbName := \"$DB\"
-        db, err := sql.Open(dbDriver, dbUser +\":\"+ dbPass +\"@tcp(\"+ dbHost +\":\"+ dbPort +\")"\\" + dbName +\"?charset=utf8\")
-        if err != nil {
-                return
-        }
-        return db
-
+    db, _ = sql.Open(\"mysql\", \"$DBUSER:$DBPASS@tcp($DBHOST:3306)/$DB\")
+return db
 }" > /opt/serotonin/d/dbcon.go
+
 
 
 
