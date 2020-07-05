@@ -185,8 +185,8 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-//	t, _ = template.ParseFiles("tmpl/footer.html")
-//	t.ExecuteTemplate(w, "footer", nil)
+	t, _ = template.ParseFiles("tmpl/footer.html")
+	t.ExecuteTemplate(w, "footer", nil)
 
 
 
