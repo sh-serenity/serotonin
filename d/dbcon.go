@@ -1,20 +1,22 @@
+
 package main
 
 import (
-	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
+        "database/sql"
+        _ "github.com/go-sql-driver/mysql"
 )
 var db *sql.DB
 func dbConnect() (db *sql.DB) {
-	dbDriver := "mysql"
-	dbUser := "root"
-	dbPass := "7ghdbwc3mk"
-	dbHost := "127.0.0.1"
-	dbPort := "3306"
-	dbName := "bydlo"
-	db, err := sql.Open(dbDriver, dbUser +":"+ dbPass +"@tcp("+ dbHost +":"+ dbPort +")/"+ dbName +"?charset=utf8")
-	if err != nil {
-		return
-	}
-	return db
+        dbDriver := "mysql"
+     dbUser := "dbuser"
+      dbPass := "passtololo"
+      dbHost := "dbhost"
+        dbPort := "3306"
+      dbName := "db"
+        db, err := sql.Open(dbDriver, dbUser +":"+ dbPass +"@tcp("+ dbHost +":"+ dbPort +")"+ dbName +"?charset=utf8")
+        if err != nil {
+                return
+        }
+        return db
 }
+
