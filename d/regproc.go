@@ -25,11 +25,11 @@ func encodeRFC2047(String string) string{
 func mailsend(fname string, sname string,email string, msg string) {
 	// Set up authentication information.
 
-	smtpServer := "vasislisa.com"
+	smtpServer :=  mailserver
 	auth := smtp.PlainAuth(
 		"",
-		"vovka@vasilisa.com",
-		"arch",
+		mailuser,
+		mailpass,
 		smtpServer,
 	)
 
