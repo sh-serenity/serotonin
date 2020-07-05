@@ -20,7 +20,7 @@ var db *sql.DB
 func dbConnect() (db *sql.DB) {
         dbDriver := \"mysql\"
      dbUser := \"$DBUSER\"
-      dbPass  \"$DBPASS\"
+      dbPass := \"$DBPASS\"
       dbHost := \"$DBHOST\"
         dbPort := \"3306\"
       dbName := \"$DB\"
