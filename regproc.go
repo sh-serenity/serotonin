@@ -6,7 +6,9 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"html/template"
-	"log"
+	"net/mail"
+
+	//	"log"
 	"net/http"
 //	"net/mail"
 //	"net/smtp"
@@ -212,7 +214,7 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 		}
 		fmt.Println(result.LastInsertId()) // id добавленного объекта
-		fmt.Println(result.RowsAffected()) */
+		fmt.Println(result.RowsAffected())
 		str,err := GenerateRandomString(40)
 		if err != nil {
 			fmt.Println(err)

@@ -1,15 +1,17 @@
 package main
 
 import (
-	"crypto/rand"
-	"encoding/base64"
+//	"crypto/rand"
+//	"encoding/base64"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"html/template"
-	"log"
-	"net/http"
 	"net/mail"
-	"net/smtp"
+
+	//	"log"
+	"net/http"
+//	"net/mail"
+//	"net/smtp"
 	"strings"
 )
 type trash struct {
@@ -21,7 +23,7 @@ func encodeRFC2047(String string) string{
 	return strings.Trim(addr.String(), " <>")
 }
 
-
+/*
 func mailsend(fname string, sname string,email string, msg string) {
 	// Set up authentication information.
 
@@ -86,6 +88,7 @@ func GenerateRandomString(s int) (string, error) {
 	b, err := GenerateRandomBytes(s)
 	return base64.URLEncoding.EncodeToString(b), err
 }
+*/
 func regprocHandle(w http.ResponseWriter, r *http.Request) {
 	chknon(w,r)
 	db := dbConnect()
@@ -211,7 +214,7 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
 			fmt.Println(err)
 		}
 		fmt.Println(result.LastInsertId()) // id добавленного объекта
-		fmt.Println(result.RowsAffected()) */
+		fmt.Println(result.RowsAffected())
 		str,err := GenerateRandomString(40)
 		if err != nil {
 			fmt.Println(err)

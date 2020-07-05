@@ -42,4 +42,4 @@ sleep 30
 docker exec  $DBHOST mysql -uroot -p$MYROOT -e "create user $DBUSER identified by '$DBPASS'"
 docker exec  $DBHOST mysql -uroot -p$MYROOT -e "create database $DB"
 docker exec  $DBHOST mysql -uroot -p$MYROOT -e "grant all privileges on $DB.* to $DBUSER"
-docker exec  $DBHOST mysql -uroot -p$MYROOT 5$DB < db.sql
+docker exec  $DBHOST mysql -uroot -p$MYROOT $DB < db.sql
