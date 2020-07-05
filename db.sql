@@ -19,6 +19,11 @@
 -- Table structure for table `comments`
 --
 
+create user $DBUSER
+create database $DB
+grant all privileges on $DB.* to $DBUSER
+use $DB
+
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -209,4 +214,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-04  0:03:18
+-- Dump completed on 2020-07-05 19:38:37
