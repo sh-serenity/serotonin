@@ -9,7 +9,7 @@ git clone https://github.com/sh-serenity/serotonin.git
 
 cd serotonin
  
-printf "
+printf " 
 package main
 
 import (
@@ -24,14 +24,13 @@ func dbConnect() (db *sql.DB) {
       dbHost := \"$DBHOST\"
         dbPort := \"3306\"
       dbName := \"$DB\"
-        db, err := sql.Open(dbDriver, dbUser +\":\"+ dbPass +\"@tcp(\"+ dbHost +\":\"+ dbPort +\")\"+ dbName +\"?charset=utf8\")
+        db, err := sql.Open(dbDriver, dbUser +\":\"+ dbPass +\"@tcp(\"+ dbHost +\":\"+ dbPort +\")"\\" + dbName +\"?charset=utf8\")
         if err != nil {
                 return
         }
         return db
-}
 
-" > /opt/serotonin/d/dbcon.go
+}" > /opt/serotonin/d/dbcon.go
 
 
 

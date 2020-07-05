@@ -1,4 +1,4 @@
-
+ 
 package main
 
 import (
@@ -13,10 +13,10 @@ func dbConnect() (db *sql.DB) {
       dbHost := "dbhost"
         dbPort := "3306"
       dbName := "db"
-        db, err := sql.Open(dbDriver, dbUser +":"+ dbPass +"@tcp("+ dbHost +":"+ dbPort +")"+ dbName +"?charset=utf8")
+        db, err := sql.Open(dbDriver, dbUser +":"+ dbPass +"@tcp("+ dbHost +":"+ dbPort +")\ + dbName +"?charset=utf8")
         if err != nil {
                 return
         }
         return db
-}
 
+}
