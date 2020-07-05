@@ -42,4 +42,4 @@ sleep 30
 docker exec -i $DBHOST mysql -uroot -p$MYROOT -e "create user $DBUSER identified by '$DBPASS'"
 docker exec -i $DBHOST mysql -uroot -p$MYROOT -e "create database $DB"
 docker exec -i $DBHOST mysql -uroot -p$MYROOT -e "grant all privileges on $DB.* to $DBUSER"
-docker exec -i $DBHOST mysql -uroot -p$MYROOT $DB < /opt/serotonin/db.sql
+docker exec -i $DBHOST mysql -h127.0.0.1 -uroot -p$MYROOT $DB < /opt/serotonin/db.sql

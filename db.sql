@@ -19,10 +19,10 @@
 -- Table structure for table `comments`
 --
 
-create user $DBUSER
-create database $DB
-grant all privileges on $DB.* to $DBUSER
-use $DB
+create user $DBUSER;
+create database $DB;
+grant all privileges on $DB.* to $DBUSER;
+use $DB;
 
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
