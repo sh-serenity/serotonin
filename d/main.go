@@ -196,7 +196,7 @@ func main() {
 	db := dbConnect()
 //	mux := http.NewServeMux()
 	fs := http.FileServer(http.Dir("./static"))
-	http.HandleFunc("/", htmlhandle)
+	http.Handle("/", fs)
 	//	mux.HandleFunc("/user/)
 	http.Handle("/reg", fs)
 	http.HandleFunc("/regproc/", regprocHandle)
