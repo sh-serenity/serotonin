@@ -199,7 +199,7 @@ func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
 	//	mux.HandleFunc("/user/)
-	http.handleFunc(/read/,htmlhandle)
+	http.handleFunc("/read/",htmlhandle)
 	http.Handle("/reg", fs)
 	http.HandleFunc("/regproc/", regprocHandle)
 	http.Handle("/enter",fs)
