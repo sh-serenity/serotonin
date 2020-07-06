@@ -108,7 +108,7 @@ type tmp struct {
 	Title, Note  string
 }
 
-var validnon = regexp.MustCompile("^/(postform|reg|regproc|enter|sign|post|posts|exit|home|profile|filesave)/$")
+var validnon = regexp.MustCompile("^/(postform|reg|regproc|enter|sign|post|posts|exit|home|profile|filesave|read)/$")
 var vaitdn = regexp.MustCompile("^/(comform|comment|users|postview)$")
 var validsoap = regexp.MustCompile("^/(checkemail)/(.*)$")
 
@@ -199,6 +199,7 @@ func main() {
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fs)
 	//	mux.HandleFunc("/user/)
+	http.handleFunc(/read/,htmlhandle)
 	http.Handle("/reg", fs)
 	http.HandleFunc("/regproc/", regprocHandle)
 	http.Handle("/enter",fs)
