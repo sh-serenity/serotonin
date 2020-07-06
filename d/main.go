@@ -19,24 +19,6 @@ var (
 	key = []byte("17923641793298746918723649781112")
 	store = sessions.NewCookieStore(key)
 )
-type regdata struct {
-	Invite string
-	Username string
-	Password string
-	Resume string
-	Url string
-	To string
-}
-
-type regchk struct {
-	Invitech int
-	Usernamereg int
-	Usernameex int
-	Passwordrx int
-	Passwordcon int
-	fnrx, snrx int
-    pln, fln, sln int
-}
 
 type zombie struct {
 	Zho string
@@ -62,8 +44,6 @@ type Signdata struct {
 	Userpic string
 	Username,Fname,Sname string
 }
-
-var validStr = regexp.MustCompile("^([a-zA-Z0-9а-яА-Я]+)$")
 
 type posttype struct
 {

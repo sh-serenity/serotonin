@@ -33,6 +33,7 @@ type regchk struct {
 var validStr = regexp.MustCompile("^([a-zA-Z0-9а-яА-Я]+)$")
 var validlogin = regexp.MustCompile("^([a-z0-9]+)$")
 var validpass = regexp.MustCompile("^([a-zA-Z0-9]+)$")
+
 func regprocHandle(w http.ResponseWriter, r *http.Request) {
     chknon(w,r)
     db := dbConnect()
@@ -46,14 +47,15 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
     var fname = r.FormValue("fname")
     var sname = r.FormValue("sname")
     var conifirm = r.FormValue("conifirm")
-    var count int
+//    var count int
     fmt.Printf("%s = %s", password, conifirm)
-    err := db.QueryRow("select COUNT(*) from invites where invite = ?", invite).Scan(&count)
-    fmt.Printf("Number of rows are %d\n", count)
-    if err != nil {
-	fmt.Println(err)
-    }
-    if count == 1 {
+//    err := db.QueryRow("select COUNT(*) from invites where invite = ?", invite).Scan(&count)
+//    fmt.Printf("Number of rows are %d\n", count)
+//    if err != nil {
+//	fmt.Println(err)
+//    }
+
+    if(invite == "zomby") {
 	note_invite = "Инвайт найден"
 	rchk.Invitech = 1
     } else {
@@ -140,21 +142,10 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
 	rchk.sln = 0
     }
 
-    if rchk.Usernamereg == 1 && rchk.Usernameex == 1 && rchk.Passwordcon == 1 && rchk.Passwordrx == 1 && rchk.Invitech == 1 && rchk.fnrx == 1 && rchk.snrx == 1 && rchk.Invitech ==  1{
-	result, err := db.Exec("insert into users (username,password,fname,sname) values(?,MD5(?),?,?)", username, password, fname, sname)
-	rootid,err := result.LastInsertId()
-	if err != nil {
-	    fmt.Println(err)
-	}
-
-	fmt.Println(result.LastInsertId()) // id добавленного объекта
-	fmt.Println(result.RowsAffected())
-//	result, err = db.Exec("UPDATE users set rootid=? where id=?",rootid,rootid)
-//	if err != nil {
-//	    fmt.Println(err)
-//	}
-
-	
+    if rchk.Usernamereg == 1 && rchk.Usernameex == 1 && rchk.Passwordcon == 1 && rchk.Passwordrx == 1 && rchk.Invitech == 1 && rchk.fnrx == 1 && rchk.snrx == 1 && rchk.Invitech ==  1 {
+	db.Exec("insert into users (username,password,fname,sname) values(?,MD5(?),?,?)", username, password, fname, sname)
+//	fmt.Println(result.LastInsertId())
+//	fmt.Println(result.RowsAffected())
 
 	http.Redirect(w,r,"/enter/",301)
     } else {
@@ -166,7 +157,7 @@ func regprocHandle(w http.ResponseWriter, r *http.Request) {
             if err != nil {
                 fmt.Println(err)
 	}
-	t.ExecuteTemplate(w, p)
+	t.Execute(w, p)
     }
 
 }
