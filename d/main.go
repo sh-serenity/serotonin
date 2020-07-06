@@ -199,6 +199,7 @@ func main() {
 	http.Handle("/", fs)
 	//	mux.HandleFunc("/user/)
 	http.Handle("/reg", fs)
+	http.HandleFunc("/read/",htmlhandle)
 	http.HandleFunc("/regproc/", regprocHandle)
 	http.Handle("/enter",fs)
 	http.HandleFunc("/sign/",signHandler)

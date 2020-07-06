@@ -35,8 +35,8 @@ func postHandle(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(err)
 		}
-	var lid int64
-		lid, err = result.LastInsertId()
+	
+		lid, err := result.LastInsertId()
 		if err != nil {
 			fmt.Println(err)
 		}
