@@ -7,7 +7,7 @@ import (
 	"html/template"
 	"net/http"
 )
-//var store = sessions.NewCookieStore([]byte(os.Getenv("SESSION_KEY")))
+var store = sessions.NewCookieStore([]byte(os.Getenv("SESSION_KEY")))
 
 
 func secret(w http.ResponseWriter, r *http.Request) {
