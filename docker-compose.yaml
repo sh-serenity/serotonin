@@ -22,13 +22,13 @@ services:
     - /opt/serotonin/d:/files
   web:
     container_name: nginx
-    image: nginx:stable
+    image: nginx:latest
     restart: always
     depends_on:
     - calm
 
     ports:
-      - "80:80"
+      - "0.0.0.0:80:80/tcp"
     volumes:
     - /opt/serotonin/conf.d:/etc/nginx/conf.d
     - /opt/serotonin:/files

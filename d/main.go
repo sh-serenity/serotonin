@@ -7,9 +7,9 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/shurcooL/github_flavored_markdown"
 	"html/template"
-	"net"
+//	"net"
 	"net/http"
-	"net/http/fcgi"
+//	"net/http/fcgi"
 	"regexp"
 )
 
@@ -218,12 +218,12 @@ func main() {
 	//	mux.HandleFunc("/secret", secret)
 	//	mux.HandleFunc("/logout", logout)
 	//	r.HandleFunc("/enter", enterHandler)
-	l, err := net.Listen("tcp", ":9001")
-	if err != nil{
-		return
-	}
-	fcgi.Serve(l, nil)
+//	l, err := net.Listen("tcp", ":9001")
+//	if err != nil{
+//		return
+//	}
+//	fcgi.Serve(l, nil)
 	db.Close()
 
-	//	http.ListenAndServe(":8000", r)
+	http.ListenAndServe(":8000",nil)
 }
