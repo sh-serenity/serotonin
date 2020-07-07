@@ -13,8 +13,8 @@ div	{
     margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    width:  766px;
-    padding: 8px 32px 8px 32px;
+    width:  70%;
+    padding: 8px 16px 8px 16px;
     align: center;
     border: 2px solid #6a4c00;
 }
@@ -23,19 +23,18 @@ div	{
     margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 766px;
+    width: 70%;
     padding: 8px 32px 8px 32px;
     align: center;
     border: 1px solid #000000;
 }
 p.con {
-    width: 830px;
+    width: 70%;
     height: auto;
     background: #ff0000;
     text-align: left;
 }
 h1	{
-    max-width: 27em;
     font-size: 32px;
     font-weight: normal;
     margin: 0px;
@@ -50,32 +49,30 @@ p {
     color: #4d3700;
     font-family: 'Arial';
     font-size: 15px;
-    max-width: 50em;
-    text-align:left;
-}  			    width: 830pxpx;
+    text-align:left
+    width: 80%px;
 display: inline-block;
-}
 }
 .hidden	{
     display: none;
 }
 #fu	{
     padding: 32px 0px 32px 0px;
-    width:  830px
+    width:  70%
 }
 #head	{
     color: #6a4c00;
     font-size: 16px;
     padding: 0px;
-    margin: 16px auto 0px auto;
+    margin: 0px auto 0px auto;
     border-bottom: 2px solid #6a4c00;
-    width: 830px;
+    width: 70%;
 }
 #logo	{
     font-size: 16px;
     margin: 0px;
     padding: 0px;
-    text-align: left;
+    text-align: center;
 }
 .menu
 {
@@ -86,7 +83,7 @@ display: inline-block;
 }
 .lighterColor {
     position: absolute;
-    width: 720px;
+    width: 70%px;
     background: #fc3;
 }
 
@@ -104,7 +101,7 @@ a {
     display: inline-block;
 
     position: absolute;
-    width: 720px;
+    width: 70%;
     background: #fc3;
 }
 .right {

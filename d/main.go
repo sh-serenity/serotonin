@@ -119,7 +119,7 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("tmpl/head.html")
 	t.Execute(w, nil)
 	db := dbConnect()
-    rowsp, err := db.Query("select posts.id, post, fname, sname, posttime from posts left join users on posts.owner = users.id where posts.owner=18 order by posttime desc")
+    rowsp, err := db.Query("select posts.id, post, fname, sname, posttime from posts left join users on posts.owner = users.id where posts.owner=18 order by posttime desc LIMIT 10 OFFSET 0")
     if err != nil {
 	fmt.Println(err)
     }
@@ -138,7 +138,7 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 	}
 	t.Execute(w, p)
 
-	c := Comdata{}
+/*	c := Comdata{}
 	rows, err := db.Query("select comment, fname, sname, comtime from comments left join users on comments.owner = users.id where postid=? order by comtime", postid)
 	fmt.Println(postid)
 	if err != nil {
@@ -159,7 +159,7 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	    }
 	    tc.Execute(w, pc)
-	    }
+	    }*/
 	w.Write(github_flavored_markdown.Markdown([]byte("</div>")))
 
     }
@@ -206,5 +206,5 @@ func main() {
 	fcgi.Serve(l, nil)
 	db.Close()
 
-//	http.ListenAndServe(":8000",nil)
+//	http.ListenAndServe("127.0.0.1:8000",nil)
 }
