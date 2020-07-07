@@ -4,6 +4,8 @@ import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/shurcooL/github_flavored_markdown"
+
+	//	"github.com/shurcooL/github_flavored_markdown"
 	"html/template"
 	"net/http"
 )
@@ -50,7 +52,6 @@ type link struct {
 var userstmp = template.Must(template.ParseFiles("tmpl/users.html"))
 var tmpl = template.Must(template.ParseFiles("tmpl/comments.html"))
 func signHandler(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	session, _ := store.Get(r, "cookie-name")
 
 	session.Values["authenticated"] =  false

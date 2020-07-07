@@ -7,10 +7,10 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/shurcooL/github_flavored_markdown"
 	"html/template"
-//	"net"
+	"net"
 	"net/http"
-//	"net/http/fcgi"
-	"regexp"
+	"net/http/fcgi"
+//	"regexp"
 )
 
 
@@ -88,8 +88,8 @@ type tmp struct {
 	Title, Note  string
 }
 
-var validnon = regexp.MustCompile("^/(postform|reg|regproc|enter|sign|post|posts|exit|home|profile|filesave)/$")
-var vaitdn = regexp.MustCompile("^/(comform|comment|users|postview)$")
+/*var validnon = regexp.MustCompile("^/(postform|reg|regproc|enter|sign|post|posts|exit|home|profile|filesave)//(.*)$")
+var vaitdn = regexp.MustCompile("^/(comform|comment|users|postview)/(.*)$")
 var validsoap = regexp.MustCompile("^/(checkemail)/(.*)$")
 
 
@@ -104,14 +104,14 @@ func chkn(w http.ResponseWriter, r *http.Request) {
 	if m == nil {
 		http.Redirect(w,r,"/static/404.htmml",301)
 	}
-}
+} 
 func chksoap(w http.ResponseWriter, r *http.Request) {
 	m := validsoap.FindStringSubmatch(r.URL.Path)
 	if m == nil {
 		http.Redirect(w,r,"/static/404.htmml",301)
 	}
 }
-
+*/
 func htmlhandle(w http.ResponseWriter, r *http.Request) {
 //	db := dbConnect()
 //	chknon(w,r)
@@ -199,12 +199,12 @@ func main() {
 	//	mux.HandleFunc("/secret", secret)
 	//	mux.HandleFunc("/logout", logout)
 	//	r.HandleFunc("/enter", enterHandler)
-//	l, err := net.Listen("tcp", ":9001")
-//	if err != nil{
-//		return
-//	}
-//	fcgi.Serve(l, nil)
+	l, err := net.Listen("tcp", ":9001")
+	if err != nil{
+		return
+	}
+	fcgi.Serve(l, nil)
 	db.Close()
 
-	http.ListenAndServe(":8000",nil)
+//	http.ListenAndServe(":8000",nil)
 }

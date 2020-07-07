@@ -10,7 +10,6 @@ import (
 )
 
 func postForm(w http.ResponseWriter, r *http.Request)  {
-	chknon(w,r)
 	htop(w,r)
 	var user User
 	user = isauth(w,r)
@@ -22,7 +21,6 @@ func postForm(w http.ResponseWriter, r *http.Request)  {
 }
 
 func postHandle(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	htop(w,r)
 	var user User
 	user = isauth(w,r)
@@ -35,8 +33,8 @@ func postHandle(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(err)
 		}
-	
-		lid, err := result.LastInsertId()
+	var lid int64
+		lid, err = result.LastInsertId()
 		if err != nil {
 			fmt.Println(err)
 		}

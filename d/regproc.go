@@ -35,7 +35,6 @@ var validlogin = regexp.MustCompile("^([a-z0-9]+)$")
 var validpass = regexp.MustCompile("^([a-zA-Z0-9]+)$")
 
 func regprocHandle(w http.ResponseWriter, r *http.Request) {
-    chknon(w,r)
     db := dbConnect()
     r.ParseForm()
     var rchk regchk

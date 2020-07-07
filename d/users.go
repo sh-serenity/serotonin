@@ -10,7 +10,6 @@ import (
 )
 
 func usersHandler(w http.ResponseWriter, r *http.Request) {
-	chkn(w,r)
 	db := dbConnect()
 	htop(w,r)
 
@@ -44,7 +43,7 @@ func usersHandler(w http.ResponseWriter, r *http.Request) {
 		if err != nil{
 				t, _ := template.ParseFiles("tmpl/footer.html")
 	t.ExecuteTemplate(w, "footer", nil)
-fmt.Println(err)
+	fmt.Println(err)
 		}
 		t.Execute(w, p)
 

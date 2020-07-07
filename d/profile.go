@@ -14,7 +14,6 @@ type filetype struct {
 }
 
 func fileform(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	db := dbConnect()
 	htop(w, r)
 	var user User
@@ -28,7 +27,6 @@ func fileform(w http.ResponseWriter, r *http.Request) {
 }
 
 func filesave(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	var user User
 	user = isauth(w, r)
 	db = dbConnect()

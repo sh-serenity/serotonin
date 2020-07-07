@@ -10,7 +10,6 @@ import (
 )
 
 func comForm(w http.ResponseWriter, r *http.Request) {
-	chkn(w,r)
 	postid := r.URL.Path[len("/comform/"):]
         i,err := strconv.Atoi(postid)
         if err != nil {
@@ -43,7 +42,6 @@ type Comdata struct {
 
 
 func comHandler(w http.ResponseWriter, r *http.Request) {
-	chkn(w,r)
 	htop(w,r)
 	var user User
 	user = isauth(w,r)
