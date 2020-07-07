@@ -10,7 +10,6 @@ import (
 )
 
 func postForm(w http.ResponseWriter, r *http.Request)  {
-	chknon(w,r)
 	htop(w,r)
 	var user User
 	user = isauth(w,r)
@@ -22,7 +21,6 @@ func postForm(w http.ResponseWriter, r *http.Request)  {
 }
 
 func postHandle(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	htop(w,r)
 	var user User
 	user = isauth(w,r)

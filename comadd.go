@@ -43,7 +43,6 @@ type Comdata struct {
 
 
 func comHandler(w http.ResponseWriter, r *http.Request) {
-	chkn(w,r)
 	htop(w,r)
 	var user User
 	user = isauth(w,r)

@@ -10,7 +10,6 @@ import (
 
 
 func postsHandle(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	htop(w, r)
 
 	db := dbConnect()

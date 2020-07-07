@@ -10,7 +10,6 @@ import (
 )
 
 func usersHandler(w http.ResponseWriter, r *http.Request) {
-	chkn(w,r)
 	db := dbConnect()
 	htop(w,r)
 

@@ -5,7 +5,6 @@ import (
 	"net/http"
 )
 func leaveHandler(w http.ResponseWriter, r *http.Request) {
-	chknon(w,r)
 	session, _ := store.Get(r, "cookie-name")
 
 	// Revoke users authentication

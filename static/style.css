@@ -13,23 +13,23 @@ div	{
     margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    width:  80%;
+    width:  60%;
     padding: 8px 32px 8px 32px;
     align: center;
-    border: 2px solid #6a4c00;
+    bottom-border: 2px solid #6a4c00;
 }
 #mer {
     background-color: #efe6d0;
     margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 60%;
     padding: 8px 32px 8px 32px;
     align: center;
     border: 1px solid #000000;
 }
 p.con {
-    width: 830px;
+    width: 60%;
     height: auto;
     background: #ff0000;
     text-align: left;
@@ -51,8 +51,8 @@ p {
     font-family: 'Arial';
     font-size: 15px;
     max-width: 50em;
-    text-align:left;
-}  			    width: 830pxpx;
+    text-align:le
+    width 60%;
 display: inline-block;
 }
 }
@@ -61,7 +61,7 @@ display: inline-block;
 }
 #fu	{
     padding: 32px 0px 32px 0px;
-    width:  80%
+    width:  60%
 }
 #head	{
     color: #6a4c00;
@@ -69,7 +69,7 @@ display: inline-block;
     padding: 0px;
     margin: 16px auto 0px auto;
     border-bottom: 2px solid #6a4c00;
-    width: 830px;
+    width: 60%;
 }
 #logo	{
     font-size: 16px;
@@ -86,7 +86,7 @@ display: inline-block;
 }
 .lighterColor {
     position: absolute;
-    width: 720px;
+    width: 60%;
     background: #fc3;
 }
 
@@ -104,7 +104,7 @@ a {
     display: inline-block;
 
     position: absolute;
-    width: 720px;
+    width: 60%;
     background: #fc3;
 }
 .right {

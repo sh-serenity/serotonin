@@ -8,7 +8,7 @@ import (
 
 
 func checkemail(w http.ResponseWriter, r *http.Request) {
-	chksoap(w,r)
+//	chksoap(w,r)
 	db := dbConnect()
 	hash := r.URL.Path[len("/checkemail/"):]
 	fmt.Println(hash)

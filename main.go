@@ -108,30 +108,6 @@ type tmp struct {
 	Title, Note  string
 }
 
-var validnon = regexp.MustCompile("^/(postform|reg|regproc|enter|sign|post|posts|exit|home|profile|filesave|read)/$")
-var vaitdn = regexp.MustCompile("^/(comform|comment|users|postview)$")
-var validsoap = regexp.MustCompile("^/(checkemail)/(.*)$")
-
-
-func chknon(w http.ResponseWriter, r *http.Request)  {
-	m := validnon.FindStringSubmatch(r.URL.Path)
-	if m == nil {
-		http.Redirect(w,r,"/static/404.htmml",301)
-	}
-}
-func chkn(w http.ResponseWriter, r *http.Request) {
-	m := vaitdn.FindStringSubmatch(r.URL.Path)
-	if m == nil {
-		http.Redirect(w,r,"/static/404.htmml",301)
-	}
-}
-func chksoap(w http.ResponseWriter, r *http.Request) {
-	m := validsoap.FindStringSubmatch(r.URL.Path)
-	if m == nil {
-		http.Redirect(w,r,"/static/404.htmml",301)
-	}
-}
-
 func htmlhandle(w http.ResponseWriter, r *http.Request) {
 //	db := dbConnect()
 //	chknon(w,r)
@@ -220,12 +196,12 @@ func main() {
 	//	mux.HandleFunc("/secret", secret)
 	//	mux.HandleFunc("/logout", logout)
 	//	r.HandleFunc("/enter", enterHandler)
-//	l, err := net.Listen("tcp", ":9001")
-//	if err != nil{
-//		return
-//	}
-//	fcgi.Serve(l, nil)
+	l, err := net.Listen("tcp", ":9001")
+	if err != nil{
+		return
+	}
+	fcgi.Serve(l, nil)
 	db.Close()
 
-	http.ListenAndServe(":8000", r)
+//	http.ListenAndServe(":8000", r)
 }
