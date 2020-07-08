@@ -116,7 +116,7 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 //	db := dbConnect()
 //	chknon(w,r)
 //	htop(w, r)
-	t, _ := template.ParseFiles("tmpl/head.html")
+	t, _ := template.ParseFiles("tmpl/header.html")
 	t.Execute(w, nil)
 	db := dbConnect()
     rowsp, err := db.Query("select posts.id, SUBSTRING(`post`, 1, 500), fname, sname, posttime from posts left join users on posts.owner = users.id where posts.owner=18  order by posttime desc")

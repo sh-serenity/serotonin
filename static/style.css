@@ -10,32 +10,33 @@ a	{
 }
 div	{
     background-color: #efe6d0;
+    width:  70%;
     margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    width:  60%;
     padding: 8px 32px 8px 32px;
+    border-radius: 10px;
     align: center;
-    bottom-border: 2px solid #6a4c00;
+    border: 2px solid #004400;
+
 }
 #mer {
     background-color: #efe6d0;
     margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 70%;
     padding: 8px 32px 8px 32px;
     align: center;
     border: 1px solid #000000;
 }
 p.con {
-    width: 60%;
+    width: 70%;
     height: auto;
     background: #ff0000;
     text-align: left;
 }
 h1	{
-    max-width: 27em;
     font-size: 32px;
     font-weight: normal;
     margin: 0px;
@@ -50,32 +51,30 @@ p {
     color: #4d3700;
     font-family: 'Arial';
     font-size: 15px;
-    max-width: 50em;
-    text-align:le
-    width 60%;
+    text-align:left
+    width: 80%px;
 display: inline-block;
-}
 }
 .hidden	{
     display: none;
 }
 #fu	{
     padding: 32px 0px 32px 0px;
-    width:  60%
+    width:  70%
 }
 #head	{
     color: #6a4c00;
     font-size: 16px;
     padding: 0px;
-    margin: 16px auto 0px auto;
+    margin: 0px auto 0px auto;
     border-bottom: 2px solid #6a4c00;
-    width: 60%;
+    width: 70%;
 }
 #logo	{
     font-size: 16px;
     margin: 0px;
     padding: 0px;
-    text-align: left;
+    text-align: center;
 }
 .menu
 {
@@ -86,7 +85,7 @@ display: inline-block;
 }
 .lighterColor {
     position: absolute;
-    width: 60%;
+    width: 70%px;
     background: #fc3;
 }
 
@@ -104,12 +103,12 @@ a {
     display: inline-block;
 
     position: absolute;
-    width: 60%;
+    width: 70%;
     background: #fc3;
 }
 .right {
     position: absolute;
-    width: 15%;
+    width: 10%;
     right: 0%;
     fon-size: 16px;
 }
