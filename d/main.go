@@ -119,18 +119,18 @@ func htmlhandle(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("tmpl/head.html")
 	t.Execute(w, nil)
 	db := dbConnect()
-    rowsp, err := db.Query("select posts.id, post, fname, sname, posttime from posts left join users on posts.owner = users.id where posts.owner=18 order by posttime desc LIMIT 10 OFFSET 0")
+    rowsp, err := db.Query("select posts.id, SUBSTRING(`post`, 1, 500), fname, sname, posttime from posts left join users on posts.owner = users.id where posts.owner=18  order by posttime desc")
     if err != nil {
 	fmt.Println(err)
     }
 
     for rowsp.Next() {
 	var pfname, psname, posttime string
-	var post []byte
+	var post1 []byte
 	var postid int
-	err = rowsp.Scan(&postid, &post, &pfname, &psname, &posttime)
+	err = rowsp.Scan(&postid, &post1, &pfname, &psname, &posttime)
 	w.Write(github_flavored_markdown.Markdown([]byte("<div>")))
-	w.Write(github_flavored_markdown.Markdown(post))
+	w.Write(github_flavored_markdown.Markdown(post1))
 	p := &posttype{Id: postid, Pfname: pfname, Psname: psname, Posttime: posttime}
 	t, err := template.ParseFiles("tmpl/posts.html")
 	if err != nil {

@@ -130,7 +130,7 @@ func isauth(w http.ResponseWriter, r *http.Request) (User) {
 func htop(w http.ResponseWriter, r *http.Request) {
 
 	var user User
-		user = isauth(w,r)
+//		user = isauth(w,r)
 	/*	t,err := template.ParseFiles("tmpl/header.html")
 		if err != nil {
 			fmt.Println(err)
@@ -173,7 +173,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 	htop(w, r)
 	var user User
-	user = isauth(w, r)
+//	user = isauth(w, r)
 
 
 	rowsp, err := db.Query("select posts.id, post, fname, sname, posttime from posts left join users on posts.owner = users.id where posts.owner = ? order by posttime desc", user.id)

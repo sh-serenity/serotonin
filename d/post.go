@@ -56,7 +56,8 @@ func postHandle(w http.ResponseWriter, r *http.Request) {
 		db.Close()
 	}
 func postview(w http.ResponseWriter, r *http.Request) {
-	postid := r.URL.Path[len("/comform/"):]
+	htop(w,r);
+	postid := r.URL.Path[len("/postview/"):]
 
 	i, err := strconv.Atoi(postid)
 	if err != nil {
@@ -75,8 +76,35 @@ func postview(w http.ResponseWriter, r *http.Request) {
 		w.Write(github_flavored_markdown.Markdown(post))
 		w.Write(github_flavored_markdown.Markdown([]byte("</div>")))
 		p := &Postdata{Posttime: posttime}
+
+	c := Comdata{}
+	rows, err := db.Query("select comment, fname, sname, comtime from comments left join users on comments.owner = users.id where postid=? order by comtime", postid)
+	fmt.Println(postid)
+	if err != nil {
+	    fmt.Println(err)
+	}
+
+	for rows.Next() {
+	    err = rows.Scan(&c.Comment, &c.Fname, &c.Sname, &c.Comtime)
+	    if err != nil {
+		fmt.Println(err)
+		continue
+	    }
+	    w.Write(github_flavored_markdown.Markdown([]byte("<div>")))
+	    w.Write(github_flavored_markdown.Markdown(c.Comment))
+	    pc := &Comdata{Fname: c.Fname, Sname: c.Sname, Comtime: c.Comtime}
+	    tc, err := template.ParseFiles("tmpl/comm.html")
+	    if err != nil {
+		fmt.Println(err)
+	    }
+	    tc.Execute(w, pc)
+	    }
+	w.Write(github_flavored_markdown.Markdown([]byte("</div></div>")))
+
+    
+
 		t, _ := template.ParseFiles("tmpl/post.html")
 		t.Execute(w, p)
 		db.Close()
 
-	}
+}
